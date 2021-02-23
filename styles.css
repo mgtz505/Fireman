@@ -1,49 +1,52 @@
 body {
-    background:whitesmoke;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 main {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .placeholders {
-    background-color: darkred;
-    width: 25px;
-    height: 25px;
-    padding: 25px;
-    margin: 10px;
-    border: solid black 2px;
-    font-size: 30px;
-    color: orange;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 25px;
+  background-color: darkred;
+  width: 25px;
+  height: 25px;
+  padding: 25px;
+  margin: 10px;
+  border: solid black 2px;
+  font-size: 30px;
+  color: orange;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 25px;
 }
 
 .answerSpace {
-    height: 200px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .custom_class {
-    background: orange;
-    width: 25px;
-    height: 25px;
-    padding: 25px;
-    margin: 10px;
-    border: solid black 2px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  background: orange;
+  width: 25px;
+  height: 25px;
+  padding: 25px;
+  margin: 10px;
+  border: solid black 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.aboutGame {
+    display: inline-block;
+    margin: 30px;
 }
