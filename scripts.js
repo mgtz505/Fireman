@@ -17,9 +17,9 @@ let wordTally = splitWord.length;
 //Create the guess- workspace and apply event-listeners to register selection
 
 answerCheckArray = [];
-for (let i=0; i<= wordTally; i++) {
-    answerCheckArray.push("");
-}
+// for (let i=0; i<= wordTally; i++) {
+//     answerCheckArray.push("");
+// }
 const guessSection = document.querySelector(".answerSpace");
 
 function applyGuessDiv() {
@@ -41,29 +41,41 @@ function applyGuessDiv() {
         const letterValue = letterBoxes[i].getAttribute("data-id")
         letterBoxes[i].addEventListener("click", () => {
             letters[i] = letterValue;
-            answerCheckArray[0] = letters[i]
-            // console.log(testArray);
-            console.log(letters);
-            console.log(answerCheckArray);
+            num = letters[i]
+            answerCheckArray.push(num);
+            // console.log(letters);
             
-            for (let i=0; i<= wordTally; i++){
-                if(answerCheckArray[i] === splitWord[i]){
-                    console.log("match made");
-                }
+            console.log(answerCheckArray);
+            if(answerCheckArray[i] === splitWord[i]){
+                console.log("match made");
             }
-            // return letters;
+            console.log(letters)
+            console.log(num)
+
         })
-     }
+    }
+        // let position = 0;
+        // answerCheckArray[position++] = num
+        //             console.log(answerCheckArray);
+
+            // for (let i=0; i<= wordTally; i++){
+            //     if(answerCheckArray[i] === splitWord[i]){
+            //         console.log("match made");
+            //     }
+            // }
     }
     pushLetter();
+    // let position = 0;
+    //     answerCheckArray[position++] = pushLetter()
+    //     console.log(answerCheckArray);
 
     //Player Two begins the deduction process
 
 
-console.log(answerCheckArray.length);
-console.log(answerCheckArray);
-console.log(letters);
-console.log(splitWord);
+// console.log(answerCheckArray.length);
+// console.log(answerCheckArray);
+// console.log(letters);
+// console.log(splitWord);
 
 // Create the comparison for loop 
 // for (let i=0; i<= wordTally; i++){
