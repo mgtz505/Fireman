@@ -1,4 +1,3 @@
-
 //Player One enteres the "mystery word, MW"
 
 // let word = inputBox.value;
@@ -7,12 +6,11 @@
 
 //The MW is hidden / obstructed / length is communicated to the player
 
-let mysteryWord = prompt("Enter your phrase here");
+let mysteryWord = prompt("Enter your phrase here").toUpperCase();
 let splitWord = mysteryWord.split("");
 let wordTally = splitWord.length;
 //Make changes for difficulty calibration here
 //wordTally ++
-
 
 //Create the guess- workspace and apply event-listeners to register selection
 
@@ -23,67 +21,78 @@ answerCheckArray = [];
 const guessSection = document.querySelector(".answerSpace");
 
 function applyGuessDiv() {
-    const guessDiv = document.createElement("div");
-    guessDiv.className = "custom_class"
-    const currentDiv = document.querySelector(".answerSpace");
-        document.body.appendChild(guessDiv);
-};
-    for(let i = 0;i <= splitWord.length-1; i++) {   
-        applyGuessDiv();   
-    };
+  const guessDiv = document.createElement("div");
+  guessDiv.className = "custom_class";
+  const currentDiv = document.querySelector(".answerSpace");
+  document.body.appendChild(guessDiv);
+}
+for (let i = 0; i <= splitWord.length - 1; i++) {
+  applyGuessDiv();
+}
 
-    const letterBoxes = document.getElementsByClassName("placeholders");
-    console.log(letterBoxes);
+const letterBoxes = document.getElementsByClassName("placeholders");
+// console.log(letterBoxes);
 
-    let letters = Array(26).fill("");
-    function pushLetter (){
-     for (let i = 0; i <= letters.length-1; i++) {
-        const letterValue = letterBoxes[i].getAttribute("data-id")
-        letterBoxes[i].addEventListener("click", () => {
-            letters[i] = letterValue;
-            num = letters[i]
-            answerCheckArray.push(num);
-            // console.log(letters);
-            
-            console.log(answerCheckArray);
-            if(answerCheckArray[i] === splitWord[i]){
-                console.log("match made");
-            }
-            console.log(letters)
-            console.log(num)
+let letters = Array(26).fill("");
+function pushLetter() {
+  for (let i = 0; i <= letters.length - 1; i++) {
+    const letterValue = letterBoxes[i].getAttribute("data-id");
+    letterBoxes[i].addEventListener("click", () => {
+      letters[i] = letterValue;
+      num = letters[i];
+      answerCheckArray.push(num);
+      console.log(letters);
+      checkForMatch()
+      return num
+    })
+  }
+}
 
-        })
+function checkForMatch(){
+      console.log(answerCheckArray);
+      for (let i = 0; i < wordTally; i++) {
+        if (answerCheckArray[i] === splitWord[i]) {
+          console.log("match made");
+        } else {
+          if (answerCheckArray[i] !== splitWord[i]) {
+            console.log("No Match Made");
+            answerCheckArray.shift()
+          }
+        }
+      }
     }
-        // let position = 0;
-        // answerCheckArray[position++] = num
-        //             console.log(answerCheckArray);
+      console.log(letters);
+    
+  
+  // let position = 0;
+  // answerCheckArray[position++] = num
+  //             console.log(answerCheckArray);
 
-            // for (let i=0; i<= wordTally; i++){
-            //     if(answerCheckArray[i] === splitWord[i]){
-            //         console.log("match made");
-            //     }
-            // }
-    }
-    pushLetter();
-    // let position = 0;
-    //     answerCheckArray[position++] = pushLetter()
-    //     console.log(answerCheckArray);
+  // for (let i=0; i<= wordTally; i++){
+  //     if(answerCheckArray[i] === splitWord[i]){
+  //         console.log("match made");
+  //     }
+  // }
 
-    //Player Two begins the deduction process
+pushLetter();
+checkForMatch();
+// let position = 0;
+//     answerCheckArray[position++] = pushLetter()
+//     console.log(answerCheckArray);
 
+//Player Two begins the deduction process
 
 // console.log(answerCheckArray.length);
 // console.log(answerCheckArray);
 // console.log(letters);
 // console.log(splitWord);
 
-// Create the comparison for loop 
+// Create the comparison for loop
 // for (let i=0; i<= wordTally; i++){
 //     if(answerCheckArray[i] === splitWord[i]){
 //         console.log("match made");
 //     }
 // }
-
 
 // When a letter is correctly deduced, a visual
 //element of the fire is removed
@@ -99,9 +108,7 @@ function applyGuessDiv() {
 //If the word is not correctly deduced, the victory
 //condition is not met // victory for P1
 
-
-
-//Sources Consulted: 
+//Sources Consulted:
 
 //https://stackoverflow.com/questions/51327671/how-to-style-dynamically-created-elements-with-css
 
