@@ -45,16 +45,47 @@ function applyGuessDiv() {
         applyGuessDiv();   
     };
 
-    let listener = document.querySelectorAll(".placeholder")
-    listener.addEventListener ("click", 
-    });
+    const letterBoxes = document.getElementsByClassName("placeholders");
+    console.log(letterBoxes);
 
-    function registerLetter() {
-        dispatchEvent.value
+    let letters = ["","","","","","","","","","","","","","","","","","","","","","","","","",""]
+    function pushLetter (){
+     for (let i = 0; i <= letters.length-1; i++) {
+        const letterValue = letterBoxes[i].getAttribute("data-id")
+        letterBoxes[i].addEventListener("click", () => {
+
+            letters[i] = letterValue;
+            console.log(letterValue);
+            // let boxValue = letterBoxes.getAttribute(data-id);
+            // letters[i].setAttribute("data-id","a")
+
+            console.log(letterValue);
+            console.log(letters);
+            return letters;
+        })
+     }
     }
+    pushLetter();
+console.log(letters.length);
+
+
+
+
+
+
+
+    // let listener = document.querySelectorAll(".placeholder")
+    // listener.addEventListener ("click", 
+    // };
+
+    // function registerLetter() {
+    //     dispatchEvent.value
+    // }
 
 //https://stackoverflow.com/questions/51327671/how-to-style-dynamically-created-elements-with-css
 
+//Data-id:
+//https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute
 
 // When a letter is correctly deduced, a visual
 //element of the fire is removed
