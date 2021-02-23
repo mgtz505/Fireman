@@ -1,38 +1,25 @@
 
-
-//Psuedo Code
-
 //Player One enteres the "mystery word, MW"
-
 
 // let word = inputBox.value;
 // const submitButton = document.querySelector(".submit_button");
 // const inputBox = document.querySelector(".input_p1");
 
-
 //The MW is hidden / obstructed / length is communicated to the player
 
 let mysteryWord = prompt("Enter your phrase here");
-// console.log(mysteryWord);
 let splitWord = mysteryWord.split("");
-// console.log(splitWord);
 let wordTally = splitWord.length;
-// console.log(wordTally);
 //Make changes for difficulty calibration here
 //wordTally ++
 
 
-//Player Two begins the deduction process
+//Create the guess- workspace and apply event-listeners to register selection
 
 answerCheckArray = [];
-for (let i=0; i<= wordTally.length; i++) {
+for (let i=0; i<= wordTally; i++) {
     answerCheckArray.push("");
-    // console.log(answerCheckArray.length);
 }
-
-//Create the guess- workspace
-
-
 const guessSection = document.querySelector(".answerSpace");
 
 function applyGuessDiv() {
@@ -48,44 +35,43 @@ function applyGuessDiv() {
     const letterBoxes = document.getElementsByClassName("placeholders");
     console.log(letterBoxes);
 
-    let letters = ["","","","","","","","","","","","","","","","","","","","","","","","","",""]
+    let letters = Array(26).fill("");
     function pushLetter (){
      for (let i = 0; i <= letters.length-1; i++) {
         const letterValue = letterBoxes[i].getAttribute("data-id")
         letterBoxes[i].addEventListener("click", () => {
-
             letters[i] = letterValue;
-            console.log(letterValue);
-            // let boxValue = letterBoxes.getAttribute(data-id);
-            // letters[i].setAttribute("data-id","a")
-
-            console.log(letterValue);
+            answerCheckArray[0] = letters[i]
+            // console.log(testArray);
             console.log(letters);
-            return letters;
+            console.log(answerCheckArray);
+            
+            for (let i=0; i<= wordTally; i++){
+                if(answerCheckArray[i] === splitWord[i]){
+                    console.log("match made");
+                }
+            }
+            // return letters;
         })
      }
     }
     pushLetter();
-console.log(letters.length);
+
+    //Player Two begins the deduction process
 
 
+console.log(answerCheckArray.length);
+console.log(answerCheckArray);
+console.log(letters);
+console.log(splitWord);
 
+// Create the comparison for loop 
+// for (let i=0; i<= wordTally; i++){
+//     if(answerCheckArray[i] === splitWord[i]){
+//         console.log("match made");
+//     }
+// }
 
-
-
-
-    // let listener = document.querySelectorAll(".placeholder")
-    // listener.addEventListener ("click", 
-    // };
-
-    // function registerLetter() {
-    //     dispatchEvent.value
-    // }
-
-//https://stackoverflow.com/questions/51327671/how-to-style-dynamically-created-elements-with-css
-
-//Data-id:
-//https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute
 
 // When a letter is correctly deduced, a visual
 //element of the fire is removed
@@ -101,3 +87,14 @@ console.log(letters.length);
 //If the word is not correctly deduced, the victory
 //condition is not met // victory for P1
 
+
+
+//Sources Consulted: 
+
+//https://stackoverflow.com/questions/51327671/how-to-style-dynamically-created-elements-with-css
+
+//Repeating Array:
+//https://stackoverflow.com/questions/12503146/create-an-array-with-same-element-repeated-multiple-times
+//Data-id:
+//https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute
+//https://stackoverflow.com/questions/42764079/get-data-id-from-html-element
