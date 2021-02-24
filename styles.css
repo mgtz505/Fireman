@@ -1,3 +1,19 @@
+body {
+    background: black;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-family: serif;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
 h1{
     font-size: 50px;
     color:orangered;
@@ -6,15 +22,13 @@ h1{
 }
 button {
 height: 75px;
-font-size:
 }
 
-body {
-  background: black;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
+h2 {
+    font-size: 24px;
+}
+p {
+    font-size: 18px;
 }
 
 #modal {
@@ -32,8 +46,8 @@ body {
 #modalTextbox {
 	font-family: "Arial";
 	background-color: darkslategrey;
-    color: orangered;
-	height: 350px;
+    color: orange;
+	height: 450px;
 	padding: 2%;
 	line-height: 120%;
 	width: 550px;
@@ -46,42 +60,51 @@ body {
 }
 .modalButton {
 	padding: 14px 18px;
-	background-color: #1d3353;
-	border: none;
+    font-size: 20px;
+	background-color: darkred;
+	border: solid white 2px;
 	outline: none;
 	border-radius: 3px;
-	color: orangered;
-	font-family: "Arial";
+	color: orange;
+	font-family: "Serif";
 	cursor: pointer;
-
 }
 .message_section{
     display: block;
 }
 
 .aboutGame{
-    float:left;
+    float:inline-start;
+    background-color: darkred;
+    color: orange;
+    border: solid white 2px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.resetGame{
+    float:inline-end;
+    background-color: darkred;
+    color: orange;
+    border: solid white 2px;
+    font-size: 20px;
+    cursor: pointer;
 }
+
 
 .placeholders {
   background-color: darkred;
-  width: 25px;
-  height: 25px;
-  padding: 25px;
-  margin: 10px;
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  margin: 5px;
   border: solid white 2px;
   font-size: 30px;
   color: orange;
   text-align: center;
   vertical-align: middle;
   line-height: 25px;
+  cursor: pointer;
 }
 
 .answerSpace {
@@ -116,10 +139,10 @@ main {
 }
 
 .imageSpace{
-    display: grid;
-    grid-template-rows: 100px 1fr 100px;
-    grid-template-columns: 150px 1fr 150px
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* .messageSpace{
     background:orangered;
@@ -130,17 +153,21 @@ main {
    top: 600px; */
 }
 
-.overlay_bottom{
-    grid-column: 4 / -1;
-    grid-row: 3;
-    padding-top: 5%;
+.overlay_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 .overlay_top{
-    grid-column: 3 / -1;
-    grid-row: 1; 
-    grid-row-end: span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     z-index: 1;
-    padding: 0px;
+   top: 0;
+   right: 0;
+   left: 0;
+   bottom: 0;
 }
 
 #building {
@@ -154,9 +181,9 @@ main {
 } */
 
 .flame{
-    height: 950px;
-    /* animation-name: extinguish;
-    animation-duration: 10s; */
+    height: 750px;
+    width: 700px;
+    margin: -100px;
 }
 
 .flameAnimation{
@@ -168,6 +195,10 @@ main {
     animation-name: inferno;
     animation-duration: 3s;
 }
+.strikeOutAnimation {
+    animation-name: strikeOut;
+    animation-duration: 1s;
+}
 
 @keyframes extinguish {
     from {opacity: 1}
@@ -176,4 +207,9 @@ main {
 @keyframes inferno {
     from {height: 750px}
     to {height: 1200px}
+}
+
+@keyframes strikeOut {
+    from {background-color: darkred;}
+    to {background-color: white;}
 }
