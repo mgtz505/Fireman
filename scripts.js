@@ -2,12 +2,32 @@
 
 //The MW is hidden / obstructed / length is communicated to the player
 
+
+
+//Making the infomational Modal
+const open = document.getElementById("openModal");
+const modal = document.getElementById("modalTextbox");
+const close = document.getElementById("closeModal");
+//Create Event Holders
+const closeModal = () => {
+    modal.style.display = 'none'
+}
+const openModal = () => {
+    modal.style.display = 'block';
+}
+//Event Listeners
+open.addEventListener("click", openModal);
+close.addEventListener("click", closeModal)
+//Timer Construction
+setTimeout(openModal, 5000)
+
 let mysteryWord = prompt("Enter your phrase here").toUpperCase();
 let difficulty = parseInt(prompt("On a scale of 1-5, 5 being the easist, choose your difficulty level"));
 let splitWord = mysteryWord.split("");
 let wordTally = splitWord.length;
-//Make changes for difficulty calibration here
-//wordTally ++
+
+
+
 
 //Create the guess- workspace and apply event-listeners to register selection
 answerCheckArray = [];
@@ -87,6 +107,8 @@ function checkForMatch(letter) {
       setTimeout(pausedLoseAlert, 1000);
       function pausedLoseAlert() {
         alert("You failed to guess all the letters and extinguish the fire!");
+        let flame = document.querySelector(".flame");
+        flame.classList.add("infernoAnimation");
       }
     }
   }

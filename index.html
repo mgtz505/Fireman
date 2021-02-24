@@ -9,9 +9,20 @@
 
 </head>
 <body>
-    <h1>Fireman</h1>
-    <button class="aboutGame">About this Game</button>
-
+    <div class = "main_section">
+    <h1>🔥Fireman🔥</h1>
+    <button class="aboutGame" id="openModal">About this Game</button>
+        <div id="modalTextbox">
+            <h2>Welcome to Fireman</h2>
+            <p>Thank you for volunteering for the General Assembly SEI Volunteer Fire Department!</p>
+            <p>A very importat data center in Menlo Park is on fire! To put it out, we need to deduce the mystery word selected by <strong>Player One</strong>.</p>
+            <p>Each of the yellow boxes represents a letter that must be deduced by <strong>Player Two</strong>.</p>
+            <p> If you, <strong>Player Two</strong>, can guess all of the letters in time, we can save all the vulnerable servers!</p>
+            <div id="modalFooter">
+                <button class="modalButton" id="closeModal">close</button>
+            </div>
+        </div>
+    <div>STATUS</div>
 
     <main class ="letterboard">
         <div class="placeholders" data-id="A" >A</div class="placeholders" data-id="" >

@@ -1,9 +1,66 @@
+h1{
+    font-size: 50px;
+    color:orangered;
+    text-align: center;
+    margin: auto;
+}
+button {
+height: 75px;
+font-size:
+}
+
 body {
-  background: whitesmoke;
+  background: black;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+
+#modal {
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+	display: none; 
+}
+
+#modalTextbox {
+	font-family: "Arial";
+	background-color: darkslategrey;
+    color: orangered;
+	height: 350px;
+	padding: 2%;
+	line-height: 120%;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0, 2px 2px rgba(0,0,0,0.2);
+}
+#modalFooter {
+	text-align: right;
+}
+.modalButton {
+	padding: 14px 18px;
+	background-color: #1d3353;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: orangered;
+	font-family: "Arial";
+	cursor: pointer;
+
+}
+.message_section{
+    display: block;
+}
+
+.aboutGame{
+    float:left;
 }
 
 main {
@@ -19,7 +76,7 @@ main {
   height: 25px;
   padding: 25px;
   margin: 10px;
-  border: solid black 2px;
+  border: solid white 2px;
   font-size: 30px;
   color: orange;
   text-align: center;
@@ -28,7 +85,7 @@ main {
 }
 
 .answerSpace {
-  height: 200px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -41,10 +98,13 @@ main {
   height: 25px;
   padding: 25px;
   margin: 10px;
-  border: solid black 2px;
+  margin:auto;
+  border: solid white 2px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  align-self: center;
+
   font-size: 40px;
   text-align: center;
   vertical-align: middle;
@@ -57,20 +117,30 @@ main {
 
 .imageSpace{
     display: grid;
-    grid-template-columns: repeat(12, lfr);
-    position:relative;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 150px 1fr 150px
+    position: relative;
+}
+/* .messageSpace{
+    background:orangered;
+    height: 25px;
+    width: 500px;
+    padding-top: 25px;
+   position:absolute;
+   top: 600px; */
 }
 
 .overlay_bottom{
-    grid-column: 2 / span 8;
-    grid-row: 1;
-    padding-top: 25%;
+    grid-column: 4 / -1;
+    grid-row: 3;
+    padding-top: 5%;
 }
 .overlay_top{
-    grid-column: 4 / -1;
+    grid-column: 3 / -1;
     grid-row: 1; 
+    grid-row-end: span 1;
     z-index: 1;
-    padding: -20px;
+    padding: 0px;
 }
 
 #building {
@@ -84,7 +154,7 @@ main {
 } */
 
 .flame{
-    height: 750px;
+    height: 950px;
     /* animation-name: extinguish;
     animation-duration: 10s; */
 }
@@ -92,10 +162,18 @@ main {
 .flameAnimation{
     height: 750px;
     animation-name: extinguish;
-    animation-duration: 7s;
+    animation-duration: 10s;
+}
+.infernoAnimation{
+    animation-name: inferno;
+    animation-duration: 3s;
 }
 
 @keyframes extinguish {
     from {opacity: 1}
     to {opacity: 0}
+}
+@keyframes inferno {
+    from {height: 750px}
+    to {height: 1200px}
 }
