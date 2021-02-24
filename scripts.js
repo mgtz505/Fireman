@@ -1,12 +1,9 @@
 //Player One enteres the "mystery word, MW"
 
-// let word = inputBox.value;
-// const submitButton = document.querySelector(".submit_button");
-// const inputBox = document.querySelector(".input_p1");
-
 //The MW is hidden / obstructed / length is communicated to the player
 
 let mysteryWord = prompt("Enter your phrase here").toUpperCase();
+let difficulty = parseInt(prompt("On a scale of 1-5, 5 being the easist, choose your difficulty level"));
 let splitWord = mysteryWord.split("");
 let wordTally = splitWord.length;
 //Make changes for difficulty calibration here
@@ -14,9 +11,7 @@ let wordTally = splitWord.length;
 
 //Create the guess- workspace and apply event-listeners to register selection
 answerCheckArray = [];
-// for (let i=0; i<= wordTally; i++) {
-//     answerCheckArray.push("");
-// }
+
 const guessSection = document.querySelector(".answerSpace");
 
 function applyGuessDiv() {
@@ -28,19 +23,17 @@ function applyGuessDiv() {
 for (let i = 0; i <= splitWord.length - 1; i++) {
   applyGuessDiv();
 }
-//Attempt at getting the letter to display in the yellow child div
-// function displayLetter() {
-//    let myDivs = document.getElementsByClassName("custom_class")
-//     for (let i =0; i <=splitWord.length-1;i++){
-//         myDivs.onclick = function() {
-//             this.innerHTML = letterValue
-//         }
-//     }
-// }
-
+// Attempt at getting the letter to display in the yellow child div
+function displayLetter(letterValue) {
+  let myDivs = document.getElementsByClassName("custom_class");
+  for (let i = 0; i <= splitWord.length - 1; i++) {
+    myDivs.onclick = function () {
+      this.innerHTML = letterValue;
+    };
+  }
+}
 const letterBoxes = document.getElementsByClassName("placeholders");
 // console.log(letterBoxes);
-
 let letters = Array(26).fill("");
 let value = null;
 let letterValue = null;
@@ -51,91 +44,56 @@ function pushLetter() {
       letters[i] = letterValue;
       value = letters[i];
       answerCheckArray.push(value);
-    //   console.log(letters);
-      //   displayLetter()
-      checkForMatch();
+      //   console.log(letters);
+      displayLetter(value);
+      checkForMatch(value);
       return value;
     });
   }
+  return;
 }
+
 let counter = wordTally;
-function checkForMatch() {
-  console.log(answerCheckArray);
-  for (let i = 0; i < wordTally; i++) {
-    if (answerCheckArray[i] === splitWord[i]) {
-      console.log(
-        `Match Made with ${splitWord[i]}! There are ${
-          wordTally - i - 1
-        } letter slots that remain to be discovered!`);
-        if(wordTally - i -1 < 0){
-            return
-        }
-    } else {
-      if (answerCheckArray[i] !== splitWord[i]) {
-        console.log(`No Match Made -- ${answerCheckArray[i]} is incorrect`);
-        // counter--
+let incorrectCounter = (wordTally + difficulty);
+//calibrate difficulty here
+function checkForMatch(letter) {
+  console.log(mysteryWord.includes(letter));
+  const isWordIncluded = mysteryWord.includes(letter);
+  if (isWordIncluded == true) {
+    console.log(`Match Made with ${letter}!`);
+    counter--;
+    console.log(counter);
+    const indexOfLetter = mysteryWord.indexOf(letter);
+    document.querySelectorAll(".custom_class")[
+      indexOfLetter
+    ].innerHTML = letter;
+  } else {
+    console.log("Incorrect Guess");
+    incorrectCounter--;
+    console.log("Incorrect Counter:" + incorrectCounter);
+  }
+  if (counter === 0) {
+    console.log("All Letters Successfully Deduced!");
+    //This will trigger the victory condition
+    setTimeout(pausedWinAlert, 1000);
+    function pausedWinAlert() {
+      alert("Success! You put out the fire!");
+    }
+    let flame = document.querySelector(".flame");
+        flame.classList.add("flameAnimation");
 
-
-        // were it not for the continual iteration, could use .pop to remove the incorrect answer
-
-
-        //Penalty for incorrect Guesses
-        // counter--
-        //     if( counter < 0){
-        //         console.log("PLACEHOLDER")
-        //         return
-        //     }
+  } else {
+    if (incorrectCounter === 0) {
+      setTimeout(pausedLoseAlert, 1000);
+      function pausedLoseAlert() {
+        alert("You failed to guess all the letters and extinguish the fire!");
       }
     }
   }
   console.log(counter);
   return counter;
 }
-console.log(letters);
-
-// let position = 0;
-// answerCheckArray[position++] = num
-//             console.log(answerCheckArray);
-
-// for (let i=0; i<= wordTally; i++){
-//     if(answerCheckArray[i] === splitWord[i]){
-//         console.log("match made");
-//     }
-// }
-
 pushLetter();
-// checkForMatch();
-// let position = 0;
-//     answerCheckArray[position++] = pushLetter()
-//     console.log(answerCheckArray);
-
-//Player Two begins the deduction process
-
-// console.log(answerCheckArray.length);
-// console.log(answerCheckArray);
-// console.log(letters);
-// console.log(splitWord);
-
-// Create the comparison for loop
-// for (let i=0; i<= wordTally; i++){
-//     if(answerCheckArray[i] === splitWord[i]){
-//         console.log("match made");
-//     }
-// }
-
-// When a letter is correctly deduced, a visual
-//element of the fire is removed
-
-//When a letter is not removed, either
-//A meter on the side of the screen fills-in
-//or
-//the building animates to become more charred
-
-//If the word is correctly deduced, the victory
-//condition is met // victory for P2
-
-//If the word is not correctly deduced, the victory
-//condition is not met // victory for P1
 
 //Sources Consulted:
 
@@ -146,3 +104,10 @@ pushLetter();
 //Data-id:
 //https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute
 //https://stackoverflow.com/questions/42764079/get-data-id-from-html-element
+//https://stackoverflow.com/questions/35817843/comparing-elements-of-two-arrays
+
+//Image Source: https://lh3.googleusercontent.com/proxy/ei60f6SxDjlmVo6Qhz75oRFQAqw-VzWh_DomzA-yG444WhVxfeFTVJBOySgUKnu0fmNZpZ8stFPoJWXeLXc8RwY1eN_QC1CQ
+
+//Animation Resources:
+//https://css-tricks.com/controlling-css-animations-transitions-javascript/
+//https://bricampgomez.com/blog/how-to-overlap-images-in-css/

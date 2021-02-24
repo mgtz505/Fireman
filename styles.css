@@ -45,8 +45,57 @@ main {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  font-size: 40px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 25px;
 }
 .aboutGame {
     display: inline-block;
     margin: 30px;
+}
+
+.imageSpace{
+    display: grid;
+    grid-template-columns: repeat(12, lfr);
+    position:relative;
+}
+
+.overlay_bottom{
+    grid-column: 2 / span 8;
+    grid-row: 1;
+    padding-top: 25%;
+}
+.overlay_top{
+    grid-column: 4 / -1;
+    grid-row: 1; 
+    z-index: 1;
+    padding: -20px;
+}
+
+#building {
+    height: 500px;
+    width: 300px;
+    display:flex;
+}
+
+/* .waterSpray{
+    height:100px;
+} */
+
+.flame{
+    height: 750px;
+    /* animation-name: extinguish;
+    animation-duration: 10s; */
+}
+
+.flameAnimation{
+    height: 750px;
+    animation-name: extinguish;
+    animation-duration: 7s;
+}
+
+@keyframes extinguish {
+    from {opacity: 1}
+    to {opacity: 0}
 }
