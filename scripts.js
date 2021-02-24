@@ -77,15 +77,34 @@ function runGame() {
   //calibrate difficulty above
   function checkForMatch(letter) {
     console.log(mysteryWord.includes(letter));
+    const yellowBoxes = document.querySelectorAll(".custom_class");
     const isWordIncluded = mysteryWord.includes(letter);
     if (isWordIncluded == true) {
       console.log(`Match Made with ${letter}!`);
       counter--;
       console.log(counter);
-      const indexOfLetter = mysteryWord.indexOf(letter);
-      document.querySelectorAll(".custom_class")[
-        indexOfLetter
-      ].innerHTML = letter;
+      //1st instance
+      //   const indexOfLetter = mysteryWord.indexOf(letter);
+      //pot'l if statement, if letter already assigned at that index
+
+      //   if (yellowBoxes[indexOfLetter].innerHTML === "") {
+
+      //   } else{
+      //       for(let i=0; i<=)
+      //   }
+
+      //Loop through the MW and find all instances of that letter, if match, then:
+      //check if corresponding yellow boxes, check if empty string / content
+      let runThru = false;
+      for (let i = 0; i <= splitWord.length - 1; i++) {
+          if (letter === splitWord[i]) {
+              console.log(letter, yellowBoxes[i]);
+              if (yellowBoxes[i].innerHTML === "" && runThru === false) {
+            yellowBoxes[i].innerHTML = letter;
+            runThru = true;
+          }
+        }
+      }
     } else {
       console.log("Incorrect Guess");
       incorrectCounter--;
@@ -105,7 +124,7 @@ function runGame() {
         setTimeout(pausedLoseAlert, 1000);
         function pausedLoseAlert() {
           alert(
-            "🔥You failed to guess all the letters and extinguish the fire!🔥"
+            "🔥You failed to guess all the letters and extinguish the fire!🔥" 
           );
           let flame = document.querySelector(".flame");
           flame.classList.add("infernoAnimation");
