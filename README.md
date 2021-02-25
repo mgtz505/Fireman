@@ -1,14 +1,12 @@
 # Fireman
 
-A fun little word game for two players! I created this game to reflect on the HTML/CSS/JS skills I've developed thus-far. The game instructions can be found in the modal on the left side of the page.
+A fun little word game for two players! I created this game to reflect on the HTML/CSS/JS skills I've developed thus-far. The game instructions can be found in the modal on the left side of the page (screen shot can be found below).
 
 ## Link to hosted project in my github repo
 
 ## Game Overview
 
-https://media.git.generalassemb.ly/user/34057/files/e2614a00-769a-11eb-8182-f6577f978a40"
-
-- Fireman is a simple word game for two players, both of whom need to be sitting at the computer. Player one selects a word, the mystery word, which player two must then deduce to win the game. Player two has a guess for each letter in the word, plus several additional guesses which are determined by a difficulty calibration, The calibration is selected when player one chooses their word; five being the easiest (five additional guesses atop one for each letter in the word), one proving to be the most challenging (only one additional guess, yikes).
+- Fireman is a simple word game for two players, both of whom need to be sitting at the computer. Player one selects a word, the mystery word, which player two must then deduce to win the game. Player two has a guess for each letter in the word, plus several additional guesses which are determined by a difficulty calibration, The calibration is selected when player one chooses their word; five being the easiest (five additional guesses atop one for each letter in the word), one proving to be the most challenging (only one additional guess... yikes).
 - For each letter in the mystery word, a yellow box is generated. When a correct letter is guessed by player two, the corresponding box will populate with the letter. Incorrect guesses do not register, making this a game of memory as well as deduction.
 - An alert will communicate to both players that the word has been successfully deduced. If player two is not successful, a "game-over" message is displayed. For either outcome, an animation plays.
 -Below, you can view screenshots demonstrating the gameplay detailed above:
@@ -27,7 +25,7 @@ https://media.git.generalassemb.ly/user/34057/files/e2614a00-769a-11eb-8182-f657
 
 - This project was coded with HTML, CS and JavaScript. I did some rudimentary design using Figma for the building PVG. The flame is pixel art I found online.
 
-The link to my Figma rendering is below:
+The link to my Figma rendering:
 https://www.figma.com/file/vlse2VUxTIw3iGzakXdJep/Untitled?node-id=0%3A1
 
 ## User Stories for this Project
@@ -46,7 +44,7 @@ https://media.git.generalassemb.ly/user/34057/files/b4ee4980-721f-11eb-93ac-a7a6
 
 https://user-images.githubusercontent.com/63027187/108919836-b47bf700-7601-11eb-8ff5-269af42f770f.png
 
-- The above image is the pixel art that will be animated by CSS once the ame win/loss condition has been met.
+- The above image is the pixel art that will be animated by CSS once the game win/loss condition has been met.
 
 ## Reflection / Issues Encountered
 
@@ -79,3 +77,4 @@ https://user-images.githubusercontent.com/63027187/108919836-b47bf700-7601-11eb-
 #### Flame Pixel Art Source
 - https://lh3.googleusercontent.com/proxy/ei60f6SxDjlmVo6Qhz75oRFQAqw-VzWh_DomzA-yG444WhVxfeFTVJBOySgUKnu0fmNZpZ8stFPoJWXeLXc8RwY1eN_QC1CQ
 
+#### Thanks for reading this far. Hope you enjoy!
