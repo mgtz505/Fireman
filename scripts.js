@@ -1,10 +1,11 @@
+//RunGame is how the program is initialized
 function runGame() {
-  //Making the infomational Modal & Reset Button
+  //Making the infomational Modal ("About this Game")
   const open = document.getElementById("openModal");
   const modal = document.getElementById("modalTextbox");
   const close = document.getElementById("closeModal");
 
-  //Create Event Holders
+  //Create Event Holders for the Modal
   const closeModal = () => {
     modal.style.display = "none";
   };
@@ -12,25 +13,26 @@ function runGame() {
     modal.style.display = "block";
   };
 
-  //Event Listeners
+  //Create Event Listeners for the Modal
   open.addEventListener("click", openModal);
   close.addEventListener("click", closeModal);
-  //Reset Button
-  //Timer Construction
 
+  //Define the Mystery Word (MW) which needs to be guessed by Player 2
   let mysteryWord = prompt("Enter your phrase here").toUpperCase();
+  //Allow difficulty to be calibrate; for each lettter n in MW, 1 turn, + difficulty factor
+  //1 is the most difficut, n+1 turns, etc.
   let difficulty = parseInt(
     prompt(
       "On a scale of 1-5, 5 being the easist, choose your difficulty level"
     )
   );
+  //Convert MW into Array
   let splitWord = mysteryWord.split("");
   let wordTally = splitWord.length;
-
   //Create the guess- workspace and apply event-listeners to register selection
   answerCheckArray = [];
   const guessSection = document.querySelector(".answerSpace");
-
+  //Apply the Guess Divs / Yellow boxes to the page (each represents one letter)
   function applyGuessDiv() {
     const guessDiv = document.createElement("div");
     guessDiv.className = "custom_class";
@@ -40,7 +42,7 @@ function runGame() {
   for (let i = 0; i <= splitWord.length - 1; i++) {
     applyGuessDiv();
   }
-  // Attempt at getting the letter to display in the yellow child div
+  // Get the letter selected in the placeholder element to display in the yellow child div
   function displayLetter(letterValue) {
     let myDivs = document.getElementsByClassName("custom_class");
     for (let i = 0; i <= splitWord.length - 1; i++) {
@@ -49,6 +51,7 @@ function runGame() {
       };
     }
   }
+  //Define the placeholders (red boxes), assign event listeners, and set inner HTML = to letter selected
   const letterBoxes = document.getElementsByClassName("placeholders");
   // console.log(letterBoxes);
   let letters = Array(26).fill("");
@@ -65,91 +68,74 @@ function runGame() {
         //   console.log(letters);
         // displayLetter(value);
         checkForMatch(value);
-
         return value;
       });
     }
     return;
   }
-
+  //Define counter to establish win / loss conditions; difficulty was defined above
   let counter = wordTally;
   let incorrectCounter = wordTally + difficulty;
-  //calibrate difficulty above
+  //See if match between MW and selected letters in yellow boxes
   function checkForMatch(letter) {
-    console.log(mysteryWord.includes(letter));
+    // console.log(mysteryWord.includes(letter));
     const yellowBoxes = document.querySelectorAll(".custom_class");
     const isWordIncluded = mysteryWord.includes(letter);
     if (isWordIncluded == true) {
-      console.log(`Match Made with ${letter}!`);
+      //   console.log(`Match Made with ${letter}!`);
       counter--;
-      console.log(counter);
-      //1st instance
-      //   const indexOfLetter = mysteryWord.indexOf(letter);
-      //pot'l if statement, if letter already assigned at that index
-
-      //   if (yellowBoxes[indexOfLetter].innerHTML === "") {
-
-      //   } else{
-      //       for(let i=0; i<=)
-      //   }
+      //   console.log(counter);
 
       //Loop through the MW and find all instances of that letter, if match, then:
       //check if corresponding yellow boxes, check if empty string / content
       let runThru = false;
       for (let i = 0; i <= splitWord.length - 1; i++) {
-          if (letter === splitWord[i]) {
-              console.log(letter, yellowBoxes[i]);
-              if (yellowBoxes[i].innerHTML === "" && runThru === false) {
+        if (letter === splitWord[i]) {
+          //   console.log(letter, yellowBoxes[i]);
+          if (yellowBoxes[i].innerHTML === "" && runThru === false) {
             yellowBoxes[i].innerHTML = letter;
             runThru = true;
           }
         }
       }
     } else {
-      console.log("Incorrect Guess");
+      //   console.log("Incorrect Guess");
+      //Decrement counter to reflect bad guess
       incorrectCounter--;
-      console.log("Incorrect Counter:" + incorrectCounter);
+      //   console.log("Incorrect Counter:" + incorrectCounter);
     }
     if (counter === 0) {
-      console.log("All Letters Successfully Deduced!");
+        //Win Condition Triggered
+      //   console.log("All Letters Successfully Deduced!");
       //This will trigger the victory condition
       setTimeout(pausedWinAlert, 1000);
       function pausedWinAlert() {
         alert("Success! You put out the fire!");
       }
+      //Trigger Winning Flame Animation
       let flame = document.querySelector(".flame");
       flame.classList.add("flameAnimation");
     } else {
+        //Loss Condition Triggered
       if (incorrectCounter === 0) {
         setTimeout(pausedLoseAlert, 1000);
         function pausedLoseAlert() {
           alert(
-            "🔥You failed to guess all the letters and extinguish the fire!🔥" 
+            "🔥You failed to guess all the letters and extinguish the fire!🔥"
           );
+          //Trigger loss Flame Animation
           let flame = document.querySelector(".flame");
           flame.classList.add("infernoAnimation");
         }
       }
     }
-    console.log(counter);
+    // console.log(counter);
     return counter;
   }
+  //Call Function
   pushLetter();
 }
+//Call Function
 runGame();
-//Sources Consulted:
 
-//https://stackoverflow.com/questions/51327671/how-to-style-dynamically-created-elements-with-css
-
-//Repeating Array:
-//https://stackoverflow.com/questions/12503146/create-an-array-with-same-element-repeated-multiple-times
-//Data-id:
-//https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute
-//https://stackoverflow.com/questions/42764079/get-data-id-from-html-element
-//https://stackoverflow.com/questions/35817843/comparing-elements-of-two-arrays
-
-//Image Source: https://lh3.googleusercontent.com/proxy/ei60f6SxDjlmVo6Qhz75oRFQAqw-VzWh_DomzA-yG444WhVxfeFTVJBOySgUKnu0fmNZpZ8stFPoJWXeLXc8RwY1eN_QC1CQ
-
-//Animation Resources:
-//https://css-tricks.com/controlling-css-animations-transitions-javascript/
-//https://bricampgomez.com/blog/how-to-overlap-images-in-css/
+//End of Code

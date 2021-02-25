@@ -1,96 +1,95 @@
 body {
-    background: black;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    font-family: serif;
-  }
+  background: black;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-family: serif;
+}
 
-  main {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 
-h1{
-    font-size: 50px;
-    color:orangered;
-    text-align: center;
-    margin: auto;
+h1 {
+  font-size: 50px;
+  color: orangered;
+  text-align: center;
+  margin: auto;
 }
 button {
-height: 75px;
+  height: 75px;
 }
 
 h2 {
-    font-size: 32px;
+  font-size: 32px;
 }
 p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 #modal {
-	background-color: white;
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-	overflow: auto;
-	display: none; 
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+  display: none;
 }
 
 #modalTextbox {
-	font-family: "Arial";
-	background-color: darkslategrey;
-    color: orange;
-	height: 470px;
-	padding: 2%;
-	line-height: 120%;
-	width: 750px;
-	border-radius: 2px;
-	margin: 150px auto;
-	box-shadow: 0, 2px 2px rgba(0,0,0,0.2);
+  font-family: "Arial";
+  background-color: darkslategrey;
+  color: orange;
+  height: 470px;
+  padding: 2%;
+  line-height: 120%;
+  width: 750px;
+  border-radius: 2px;
+  margin: 150px auto;
+  box-shadow: 0, 2px 2px rgba(0, 0, 0, 0.2);
 }
 #modalFooter {
-	text-align: right;
+  text-align: right;
 }
 .modalButton {
-	padding: 14px 18px;
-    font-size: 20px;
-	background-color: darkred;
-	border: solid white 2px;
-	outline: none;
-	border-radius: 3px;
-	color: orange;
-	font-family: "Serif";
-	cursor: pointer;
+  padding: 14px 18px;
+  font-size: 20px;
+  background-color: darkred;
+  border: solid white 2px;
+  outline: none;
+  border-radius: 3px;
+  color: orange;
+  font-family: "Serif";
+  cursor: pointer;
 }
-.message_section{
-    display: block;
-}
-
-.aboutGame{
-    float:inline-start;
-    background-color: darkred;
-    color: orange;
-    border: solid white 2px;
-    font-size: 20px;
-    cursor: pointer;
+.message_section {
+  display: block;
 }
 
-.resetGame{
-    float:inline-end;
-    background-color: darkred;
-    color: orange;
-    border: solid white 2px;
-    font-size: 20px;
-    cursor: pointer;
+.aboutGame {
+  float: inline-start;
+  background-color: darkred;
+  color: orange;
+  border: solid white 2px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
+.resetGame {
+  float: inline-end;
+  background-color: darkred;
+  color: orange;
+  border: solid white 2px;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 .placeholders {
   background-color: darkred;
@@ -121,7 +120,7 @@ p {
   height: 25px;
   padding: 25px;
   margin: 10px;
-  margin:auto;
+  margin: auto;
   border: solid white 2px;
   display: flex;
   flex-direction: row;
@@ -134,82 +133,88 @@ p {
   line-height: 25px;
 }
 .aboutGame {
-    display: inline-block;
-    margin: 30px;
+  display: inline-block;
+  margin: 30px;
 }
 
-.imageSpace{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* .messageSpace{
-    background:orangered;
-    height: 25px;
-    width: 500px;
-    padding-top: 25px;
-   position:absolute;
-   top: 600px; */
+.imageSpace {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlay_bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.overlay_top{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 1;
-   top: 0;
-   right: 0;
-   left: 0;
-   bottom: 0;
+.overlay_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 #building {
-    height: 500px;
-    width: 300px;
-    display:flex;
+  height: 500px;
+  width: 300px;
+  display: flex;
 }
 
 /* .waterSpray{
     height:100px;
 } */
 
-.flame{
-    height: 750px;
-    width: 700px;
-    margin: -100px;
+.flame {
+  height: 750px;
+  width: 700px;
+  margin: -100px;
 }
 
-.flameAnimation{
-    height: 750px;
-    animation-name: extinguish;
-    animation-duration: 10s;
+.flameAnimation {
+  height: 750px;
+  animation-name: extinguish;
+  animation-duration: 10s;
 }
-.infernoAnimation{
-    animation-name: inferno;
-    animation-duration: 3s;
+.infernoAnimation {
+  animation-name: inferno;
+  animation-duration: 3s;
 }
 .strikeOutAnimation {
-    animation-name: strikeOut;
-    animation-duration: 1s;
+  animation-name: strikeOut;
+  animation-duration: 1s;
 }
 
 @keyframes extinguish {
-    from {opacity: 1}
-    to {opacity: 0}
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 @keyframes inferno {
-    from {height: 750px}
-    to {height: 1200px}
+  from {
+    height: 750px;
+  }
+  to {
+    height: 1200px;
+  }
 }
 
 @keyframes strikeOut {
-    from {background-color: darkred;}
-    to {background-color: white;}
+  from {
+    background-color: darkred;
+  }
+  to {
+    background-color: white;
+  }
 }
+
+/* End of Code */
