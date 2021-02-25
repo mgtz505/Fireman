@@ -2,7 +2,8 @@
 
 A fun little word game for two players! I created this game to reflect on the HTML/CSS/JS skills I've developed thus-far. The game instructions can be found in the modal on the left side of the page (screen shot can be found below).
 
-## Link to hosted project in my github repo
+## Link to hosted project on GitHub Pages:
+https://mgtz505.github.io/Fireman/
 
 ## Game Overview
 
