@@ -11,6 +11,11 @@ https://media.git.generalassemb.ly/user/34057/files/e2614a00-769a-11eb-8182-f657
 - Fireman is a simple word game for two players, both of whom need to be sitting at the computer. Player one selects a word, the mystery word, which player two must then deduce to win the game. Player two has a guess for each letter in the word, plus several additional guesses which are determined by a difficulty calibration, The calibration is selected when player one chooses their word; five being the easiest (five additional guesses atop one for each letter in the word), one proving to be the most challenging (only one additional guess, yikes).
 - For each letter in the mystery word, a yellow box is generated. When a correct letter is guessed by player two, the corresponding box will populate with the letter. Incorrect guesses do not register, making this a game of memory as well as deduction.
 - An alert will communicate to both players that the word has been successfully deduced. If player two is not successful, a "game-over" message is displayed. For either outcome, an animation plays.
+-Below, you can view screenshots demonstrating the gameplay detailed above:
+
+https://user-images.githubusercontent.com/63027187/109100934-ce960200-76f3-11eb-8b0e-462ddc49d7a1.png
+
+"https://user-images.githubusercontent.com/63027187/109101096-12890700-76f4-11eb-8121-108a62685b58.png"
 
 ## Installation Instructions
 
