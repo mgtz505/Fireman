@@ -13,9 +13,13 @@ https://media.git.generalassemb.ly/user/34057/files/e2614a00-769a-11eb-8182-f657
 - An alert will communicate to both players that the word has been successfully deduced. If player two is not successful, a "game-over" message is displayed. For either outcome, an animation plays.
 -Below, you can view screenshots demonstrating the gameplay detailed above:
 
-https://user-images.githubusercontent.com/63027187/109100934-ce960200-76f3-11eb-8b0e-462ddc49d7a1.png
+<img width="641" alt="Screen Shot 2021-02-24 at 10 52 53 PM" src="https://user-images.githubusercontent.com/63027187/109101412-a3f87900-76f4-11eb-970d-0c3182226cf1.png">
 
-"https://user-images.githubusercontent.com/63027187/109101096-12890700-76f4-11eb-8121-108a62685b58.png"
+
+<img width="1435" alt="Screen Shot 2021-02-24 at 10 52 09 PM" src="https://user-images.githubusercontent.com/63027187/109101484-c9858280-76f4-11eb-8b81-2a1519310482.png">
+
+<img width="1384" alt="Screen Shot 2021-02-24 at 10 54 12 PM" src="https://user-images.githubusercontent.com/63027187/109101516-d7d39e80-76f4-11eb-940e-a184da00611e.png">
+
 
 ## Installation Instructions
 
